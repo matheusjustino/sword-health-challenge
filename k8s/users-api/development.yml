@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-app-deployment
+  labels:
+    app: users-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-app
+  template:
+    metadata:
+      labels:
+        app: users-app
+    spec:
+      containers:
+        - name: users-app
+          image: matheusjustino/sword-health-challenge-users-api
+          ports:
+            - containerPort: 8080
+          args: ["-c", "./entrypoint.sh"]
+          env:
+            - name: NODE_ENV
+              value: "develop"
+            - name: PORT
+              value: "8080"
+            - name: SECRET
+              value: "logindobatman"
+            - name: RABBITMQ_USER
+              value: "admin"
+            - name: RABBITMQ_PASSWORD
+              value: "admin"
+            - name: RABBITMQ_HOST
+              value: "rabbitmq:5672"
+            - name: NOTIFICATIONS_QUEUE
+              value: "notifications_queue"
+            - name: DB_TYPE
+              value: "postgresql"
+            - name: DB_HOST
+              value: "postgres-service"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "docker"
+            - name: DB_NAME
+              value: "challenge-db"

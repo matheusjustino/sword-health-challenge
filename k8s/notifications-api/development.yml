@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notifications-app-deployment
+  labels:
+    app: notifications-app
+spec:
+  selector:
+    matchLabels:
+      app: notifications-app
+  template:
+    metadata:
+      labels:
+        app: notifications-app
+    spec:
+      containers:
+        - name: notifications-app
+          image: matheusjustino/sword-health-challenge-notifications-api
+          ports:
+            - containerPort: 8081
+          env:
+            - name: RABBITMQ_USER
+              value: "admin"
+            - name: RABBITMQ_PASSWORD
+              value: admin
+            - name: RABBITMQ_HOST
+              value: "rabbitmq:5672"
+            - name: NOTIFICATIONS_QUEUE
+              value: "notifications_queue"

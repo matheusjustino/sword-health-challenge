@@ -1,0 +1,4 @@
+export enum AmqpProviderEnum {
+	AMQP_SERVICE = 'AMQP_SERVICE',
+	SEND_NOTIFICATIONS = 'SEND_NOTIFICATIONS',
+}

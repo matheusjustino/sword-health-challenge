@@ -1,0 +1,4 @@
+export enum DatabaseProviderEnum {
+	USER_REPOSITORY = 'USER_REPOSITORY',
+	TASK_REPOSITORY = 'TASK_REPOSITORY',
+}

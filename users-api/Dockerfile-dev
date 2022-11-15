@@ -1,0 +1,17 @@
+FROM node:18-alpine3.15
+
+WORKDIR /home/app
+
+COPY . ./
+
+RUN yarn cache clean && yarn install
+
+ENV NODE_ENV='develop'
+
+EXPOSE 8080
+
+RUN apk add --no-cache bash
+
+RUN chmod u+x dev-entrypoint.sh
+
+ENTRYPOINT [ "./dev-entrypoint.sh" ]

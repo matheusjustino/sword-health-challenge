@@ -1,0 +1,13 @@
+FROM node:18-alpine3.15
+
+WORKDIR /home/app
+
+COPY . ./
+
+RUN yarn cache clean && yarn install
+
+ENV NODE_ENV='develop'
+
+EXPOSE 8080
+
+CMD ["yarn", "start:dev"]

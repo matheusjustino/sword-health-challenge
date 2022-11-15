@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: "users-api"
+    build:
+      dockerfile: Dockerfile
+      context: ./users-api
+    env_file: ./users-api/.env
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./users-api:/home/app:cached
+      - ./users-api/package.json:/home/app/package.json:cached
+    depends_on:
+      database:
+        condition: service_healthy
+    links:
+      - rabbitmq
+    networks:
+      - default-services
+
+  notifications-app:
+    container_name: "notifications-api"
+    build:
+      dockerfile: Dockerfile
+      context: ./notifications-api
+    env_file: ./notifications-api/.env
+    volumes:
+      - ./notifications-api:/home/app:cached
+      - ./notifications-api/package.json:/home/app/package.json:cached
+    depends_on:
+      - rabbitmq
+    networks:
+      - default-services
+
+  database:
+    image: postgres:14.4-alpine
+    container_name: challenge-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: challenge-db
+    ports:
+      - 5432:5432
+    networks:
+      - default-services
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    env_file:
+      - ./rabbitmq.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - default-services
+
+networks:
+  default-services:
+    name: default_services_network
