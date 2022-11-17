@@ -55,7 +55,7 @@ jobs:
           cd k8s
           kustomize edit set image matheusjustino/sword-health-challenge-users-api=matheusjustino/sword-health-challenge-users-api:${{ github.sha }}
           kustomize edit set image matheusjustino/sword-health-challenge-notifications-api=matheusjustino/sword-health-challenge-notifications-api:${{ github.sha }}
-          cat kustomization.yaml
+          cat kustomization.yml
       - name: Commit
         run: |
           git config --local user.email "action@github.com"
