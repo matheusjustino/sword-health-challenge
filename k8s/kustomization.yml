@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ..k8s/**/*yml
+
+namespace: argocd
+
+images:
+  - name: matheusjustino/sword-health-challenge-users-api
+    newName: matheusjustino/sword-health-challenge-users-api
+    newTag: latest
+  - name: matheusjustino/sword-health-challenge-notifications-api
+    newName: matheusjustino/sword-health-challenge-notifications-api
+    newTag: latest
