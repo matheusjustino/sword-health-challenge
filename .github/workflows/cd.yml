@@ -11,12 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build image and push to docker hub (sword-health-challenge-users)
+      - name: Build image and push to docker hub (sword-health-challenge-users-api)
         uses: docker/build-push-action@v1.1.0
         with:
           username: matheusjustino
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: matheusjustino/sword-health-challenge-users
+          repository: matheusjustino/sword-health-challenge-users-api
           tags: ${{ github.sha }}, latest
 
       - name: Build image and push to docker hub (sword-health-challenge-notifications-api)
