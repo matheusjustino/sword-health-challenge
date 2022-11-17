@@ -24,14 +24,18 @@ jobs:
         with:
           context: ./users-api
           push: true
-          tags: ${{ github.sha }}, latest
+          tags: |
+            matheusjustino/sword-health-challenge-users-api:${{ github.sha }}
+            matheusjustino/sword-health-challenge-users-api:latest
 
       - name: Build and push (sword-health-challenge-notifications-api)
         uses: docker/build-push-action@v2
         with:
           context: ./notifications-api
           push: true
-          tags: ${{ github.sha }}, latest
+          tags: |
+            matheusjustino/sword-health-challenge-notifications-api:${{ github.sha }}
+            matheusjustino/sword-health-challenge-notifications-api:latest
 
   deploy:
     name: Deploy
