@@ -17,8 +17,7 @@ jobs:
           username: matheusjustino
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: matheusjustino/sword-health-challenge-users-api
-          context: "{{defaultContext}}:users-api"
-          dockerfile: ./users-api/Dockerfile
+          dockerfile: /users-api/Dockerfile
           tags: ${{ github.sha }}, latest
 
       - name: Build image and push to docker hub (sword-health-challenge-notifications-api)
@@ -27,8 +26,7 @@ jobs:
           username: matheusjustino
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: matheusjustino/sword-health-challenge-notifications-api
-          context: "{{defaultContext}}:notifications-api"
-          dockerfile: ./notifications-api/Dockerfile
+          dockerfile: /notifications-api/Dockerfile
           tags: ${{ github.sha }}, latest
 
   deploy:
