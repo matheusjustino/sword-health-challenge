@@ -18,8 +18,10 @@ jobs:
 
       - name: Update k8s
         run: |
-          cd k8s
+          cd k8s/users-api
           kustomize edit set image matheusjustino/sword-health-challenge-users-api=matheusjustino/sword-health-challenge-users-api:${{ github.sha }}
+          cat kustomization.yml
+          cd ../notifications-api
           kustomize edit set image matheusjustino/sword-health-challenge-notifications-api=matheusjustino/sword-health-challenge-notifications-api:${{ github.sha }}
           cat kustomization.yml
       - name: Commit
