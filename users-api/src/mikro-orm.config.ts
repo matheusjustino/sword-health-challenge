@@ -7,7 +7,6 @@ const logger: Logger = new Logger('DatabaseModule');
 const config: Options = {
 	driverOptions: {
 		connection: { ssl: false },
-		,
 	},
 	type: process.env.DB_TYPE as
 		| 'mongo'
@@ -51,7 +50,7 @@ const config: Options = {
 	},
 };
 
-console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV);
 console.log(Options);
 
 export default config;
