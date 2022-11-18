@@ -14,6 +14,8 @@ RUN yarn build
 
 FROM node:18-alpine3.15
 
+WORKDIR /app
+
 RUN apk add --no-cache bash
 
 COPY --from=builder /app/package*.json ./

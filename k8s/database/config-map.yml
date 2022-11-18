@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: database-envs
 data:
-  POSTGRES_PASSWORD: docker
-  POSTGRES_USER: postgres
-  POSTGRES_DB: challenge-db
+  POSTGRES_PASSWORD: "docker"
+  POSTGRES_USER: "postgres"
+  POSTGRES_DB: "challenge-db"
