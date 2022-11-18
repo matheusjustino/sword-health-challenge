@@ -4,7 +4,7 @@ metadata:
   name: users-app-envs
 data:
   NODE_ENV: "docker"
-  POSTGRES_USER: "develop"
+  POSTGRES_USER: "production"
   PORT: "8080"
   SECRET: "logindobatman"
   RABBITMQ_USER: "admin"
