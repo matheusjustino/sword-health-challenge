@@ -52,6 +52,6 @@ const config: Options = {
 };
 
 console.log(process.env.NODE_ENV)
-console.log(options);
+console.log(Options);
 
 export default config;
