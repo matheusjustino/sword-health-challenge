@@ -19,9 +19,18 @@ spec:
           ports:
             - containerPort: 5432
           env:
-            - name: POSTGRES_PASSWORD
-              value: docker
             - name: POSTGRES_USER
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: database-envs
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: database-envs
+                  key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
-              value: challenge-db
+              valueFrom:
+                configMapKeyRef:
+                  name: database-envs
+                  key: POSTGRES_DB

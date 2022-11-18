@@ -20,10 +20,22 @@ spec:
             - containerPort: 8081
           env:
             - name: RABBITMQ_USER
-              value: "admin"
+              valueFrom:
+                configMapKeyRef:
+                  name: notifications-app-envs
+                  key: RABBITMQ_USER
             - name: RABBITMQ_PASSWORD
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: notifications-app-envs
+                  key: RABBITMQ_PASSWORD
             - name: RABBITMQ_HOST
-              value: "rabbitmq:5672"
+              valueFrom:
+                configMapKeyRef:
+                  name: notifications-app-envs
+                  key: RABBITMQ_HOST
             - name: NOTIFICATIONS_QUEUE
-              value: "notifications_queue"
+              valueFrom:
+                configMapKeyRef:
+                  name: notifications-app-envs
+                  key: NOTIFICATIONS_QUEUE

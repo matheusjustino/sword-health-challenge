@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notifications-app-envs
+data:
+  RABBITMQ_USER: "admin"
+  RABBITMQ_PASSWORD: "admin"
+  RABBITMQ_HOST: "rabbitmq:5672"
+  NOTIFICATIONS_QUEUE: "notifications_queue"

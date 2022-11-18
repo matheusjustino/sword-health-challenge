@@ -22,28 +22,67 @@ spec:
           args: ["-c", "./entrypoint.sh"]
           env:
             - name: NODE_ENV
-              value: "develop"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: NODE_ENV
             - name: PORT
-              value: "8080"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: PORT
             - name: SECRET
-              value: "logindobatman"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: SECRET
             - name: RABBITMQ_USER
-              value: "admin"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: RABBITMQ_USER
             - name: RABBITMQ_PASSWORD
-              value: "admin"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: RABBITMQ_PASSWORD
             - name: RABBITMQ_HOST
-              value: "rabbitmq:5672"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: RABBITMQ_HOST
             - name: NOTIFICATIONS_QUEUE
-              value: "notifications_queue"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: NOTIFICATIONS_QUEUE
             - name: DB_TYPE
-              value: "postgresql"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: DB_TYPE
             - name: DB_HOST
-              value: "postgres-service"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: DB_HOST
             - name: DB_PORT
-              value: "5432"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: DB_PORT
             - name: DB_USER
-              value: "postgres"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: DB_USER
             - name: DB_PASSWORD
-              value: "docker"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: DB_PASSWORD
             - name: DB_NAME
-              value: "challenge-db"
+              valueFrom:
+                configMapKeyRef:
+                  name: users-app-envs
+                  key: NOTIFICATIONS_QUEUE
