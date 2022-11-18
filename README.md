@@ -14,9 +14,9 @@
 
 ## DEMO
 
-- User api url: `http://143.244.203.224:8080/api`
+- User api url: `http://143.244.213.215:8080/api`
 - RabbitMQ:
-  - url: `http://164.90.253.143:15672`
+  - url: `http://24.199.66.66:15672`
   - user: admin
   - pass: admin
 - ArgoCD:
