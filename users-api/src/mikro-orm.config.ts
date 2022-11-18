@@ -6,9 +6,8 @@ const logger: Logger = new Logger('DatabaseModule');
 
 const config: Options = {
 	driverOptions: {
-		...(process.env.NODE_ENV !== 'develop' && {
-			connection: { ssl: { rejectUnauthorized: false } },
-		}),
+		connection: { ssl: false },
+		,
 	},
 	type: process.env.DB_TYPE as
 		| 'mongo'
@@ -25,7 +24,7 @@ const config: Options = {
 	pool: {
 		max: 8,
 	},
-	debug: process.env.NODE_ENV !== 'production',
+	debug: process.env.NODE_ENV === 'develop',
 	logger: logger.verbose.bind(logger),
 	entities: ['dist/database/entities/*.entity.js'],
 	entitiesTs: ['src/database/entities/*.entity.ts'],
@@ -51,5 +50,8 @@ const config: Options = {
 		emit: 'ts',
 	},
 };
+
+console.log(process.env.NODE_ENV)
+console.log(options);
 
 export default config;
