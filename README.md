@@ -11,15 +11,16 @@
 
 - The code was written in **_NodeJs_** and with the **_NestJs framework_**. **_Postgres_** and **_RabbitMQ_** were also used.
 - My kubernestes cluster is being managed by **ArgoCD** which is on **Digital Ocean**.
+- I'm using [nip.io](https://nip.io) to simulate DNS.
 
 ## DEMO
 
 - User api url: `http://143.244.213.215:8080/api`
 - RabbitMQ:
-  - url: `http://24.199.66.66:15672`
+  - url: `http://rabbitmq-sword-health.24.199.66.105.nip.io`
   - user: admin
   - pass: admin
 - ArgoCD:
-  - url: `http://24.199.67.185`
+  - url: `https://argocd-sword-health.24.199.66.105.nip.io`
   - user: admin
   - pass: 4o5ADu7nc7hr5t9R
