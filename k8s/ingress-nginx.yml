@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: rabbitmq-sword-health.24.199.66.105.nip.io
+    - host: rabbitmq-sword-health.159.203.157.189.nip.io
       http:
         paths:
           - path: /
@@ -33,7 +33,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-    - host: argocd-sword-health.24.199.66.105.nip.io
+    - host: argocd-sword-health.159.203.157.189.nip.io
       http:
         paths:
           - path: /
@@ -45,5 +45,26 @@ spec:
                   name: https
   tls:
     - hosts:
-        - argocd-sword-health.24.199.66.105.nip.io
+        - argocd-sword-health.159.203.157.189.nip.io
       secretName: argocd-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-users-api
+  namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: users-api-sword-health.159.203.157.189.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: users-app-service
+                port:
+                  number: 8080

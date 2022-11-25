@@ -15,12 +15,12 @@
 
 ## DEMO
 
-- User api url: `http://143.244.213.215:8080/api`
+- User api url: `http://users-api-sword-health.159.203.157.189.nip.io/api`
 - RabbitMQ:
-  - url: `http://rabbitmq-sword-health.24.199.66.105.nip.io`
+  - url: `http://rabbitmq-sword-health.159.203.157.189.nip.io`
   - user: admin
   - pass: admin
 - ArgoCD:
-  - url: `https://argocd-sword-health.24.199.66.105.nip.io`
+  - url: `https://argocd-sword-health.159.203.157.189.nip.io`
   - user: admin
   - pass: 4o5ADu7nc7hr5t9R
