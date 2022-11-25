@@ -7,4 +7,4 @@ namespace: argocd
 images:
 - name: matheusjustino/sword-health-challenge-users-api
   newName: matheusjustino/sword-health-challenge-users-api
-  newTag: 4d20f4d9bb13cd207d90dc47911b93a82578c8c5
+  newTag: c3965f1699213d02b1dd3e6473e8890ce87e5703
